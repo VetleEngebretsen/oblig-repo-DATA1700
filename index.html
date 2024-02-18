@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinobillettbestilling</title>
+    <script src="script.js"></script>
+    <style>
+        /* Error melding ved validering */
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bestilling av kinobilletter</h1>
+    <table>
+        <tr>
+            <td>Velg Film</td>
+            <td>
+                <!--Kode for å selecte hvilken film de vil kjøpe billett til-->
+                <select id="film" onchange="velgFilm()">
+                    <option>Velg film her</option>
+                    <option>Harry Potter</option>
+                    <option>Askeladden</option>
+                    <option>Top Gun</option>
+                </select>
+                <span class="error-message" id="filmError"></span></td>
+        </tr>
+        <!--Input felt der brukeren må skrive inn riktig type input og informasjon-->
+        <tr><td>Antall</td> 
+            <td><input type="number" id="antall" required>
+                <span class="error-message" id="antallError"></span></td></tr>
+
+        <tr><td>Fornavn</td> 
+            <td><input type="text" id="fnavn" required>
+                <span class="error-message" id="fnavnError"></span></td></tr>
+
+        <tr><td>Etternavn</td> 
+            <td><input type="text" id="enavn" required>
+                <span class="error-message" id="enavnError"></span></td></tr>
+
+        <tr><td>Telefonnr</td> 
+            <td><input type="number" id="telefon" required>
+                <span class="error-message" id="telefonError"></span></td></tr>
+
+        <tr><td>Epost</td> 
+            <td><input type="email" id="email" required>
+                <span class="error-message" id="emailError"></span>
+                <span class="error-message" id="EpostValidation"></span></td></tr>
+        <!--Span brukes til å skrive ut en errormelding dersom inputten er ugyldig-->
+        
+        <tr><td><button onclick="kjopBillett()">Kjøp billett</button></td></tr>
+    </table>
+    
+    
+    <h2>Alle billetter</h2>
+    <div id="billettListe"></div>
+    <button onclick="slettAlleBilletter()">Slett alle billetter</button><br><br>
+</body>
+</html>
